@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('writeFakerDataToFile', (RegisteredUsers, data) => {
+  const jsonData = JSON.stringify(data, null, 2);
+  cy.writeFile(RegisteredUsers, jsonData);
+});
